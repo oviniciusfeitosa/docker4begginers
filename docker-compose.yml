@@ -1,0 +1,18 @@
+web:
+  image: vinnyfs89/web-ubuntu-php7-apache2:latest
+  command: "/bin/bash apachectl -D FOREGROUND"
+  ports:
+    - "80:80"
+  volumes:
+    - /private/var/www:/var/www/
+  restart: always
+  stdin_open: true
+  tty: true
+db:
+  image: vinnyfs89/db-debian-mysql:latest
+  ports:
+    - "3306:3306"
+  command: "/bin/bash mysqld_safe"
+  restart: always
+  stdin_open: true
+  tty: true
