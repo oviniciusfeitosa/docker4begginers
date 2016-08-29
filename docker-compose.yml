@@ -8,6 +8,8 @@ web:
   restart: always
   stdin_open: true
   tty: true
+  links:
+    - db
 db:
   image: vinnyfs89/db-debian-mysql:latest
   ports:
